@@ -1,0 +1,142 @@
+{
+  "medicationData": {
+    "title": "May I ask the reason for your call?",
+    "questionAlt": "Is the reason for the call any of the following?",
+    "screenQuestion": "Are any of the questions on the list above?",
+    "medQuestion": {
+      "screenQuestion": "Select the type of Medication Service",
+      "yesTriggerList": {
+        "nurseOTD": {
+          "title": "Attempt to warm transfer to center nurse",
+          "script": "We will need to connect you with a nurse to speak with regarding your symptoms. Would you mind if I place you on a brief hold while I attempt to connect you?”",
+          "screenQuestion": "Was center nurse available for warm transfer?",
+          "rnSupervisor": {
+            "title": "Attempt to warm transfer to RN Supervisor",
+            "script": "I am still attempting to connect you with a Nurse, please continue to hold a brief minute. Thank you for your patience",
+            "screenQuestion": "Was RN Supervisor available for warm transfer?",
+            "rnManager": {
+              "title": "Attempt to warm transfer to RN Case Manager",
+              "script": "I am still attempting to connect you with a Nurse, please continue to hold a brief minute. Thank you for your patience",
+              "screenQuestion": "Was the RN Case Manager available for warm transfer?",
+              "pcpOTD": {
+                "title": "Attempt to warm transfer to the Participants PCP",
+                "script": "I was unable to connect with the nurse but I am going to attempt to connect you with a provider, please continue to hold a brief minute while I attempt to connect you.",
+                "screenQuestion": "Was the PCP available for warm transfer?"
+              }
+            }
+          }
+        }
+      },
+      "noTriggerList": {
+        "title": "Gather the questions that the caller is asking",
+        "script": "I am going to send a message regarding your questions to our Clinical Team. Someone will get back to you by end of day today. (If Friday, inform caller that someone will return call on Monday)",
+        "questionAlt": "Create Patient Case",
+        "endQ": "Was patient case completed in Athena?",
+        "list": [
+          "Source/Recipient:Select applicable option ",
+          "Provider: Primary Care Provider ",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Medication Inquiry",
+          "Priority: ",
+          "Case Description (macro): MedicationInquiry",
+          "Leave in Review: MarketPaceStaff"
+        ]
+      }
+    },
+    "medStatus": {
+      "screenQuestion": "Ask the Participant for the name of the medication or if they have the bottle of medication in front of them, if they can read the name of the medication.",
+      "question": "Is Participant able to provide the medication name?",
+      "yesMedName": {
+        "screenQuestion": "Check in EireneRx for the status of medication.",
+        "question": "Was medication found in EireneRx?",
+        "medStatusCheck": {
+          "screenQuestion": "Check in EireneRx for the status of medication.",
+          "question": "Were you able to provide caller with the status of their medication?"
+        },
+        "medStatusCheckYes": {
+          "title": "Does the caller have any additional questions?"
+        },
+        "medStatusCheckYesCase": {
+          "script": "I am going to send a message regarding your questions to our Clinical Team. Someone will get back to you by end of day today. (If Friday, inform caller that someone will return call on Monday)",
+          "title": "Create Patient Case",
+          "endQ": "Was patient case completed in Athena?",
+          "list": [
+            "Source/Recipient:Select applicable option ",
+            "Provider: Primary Care Provider ",
+            "Person to Call: Enter Callers Name",
+            "Desired Callback Number: Enter Callback #",
+            "Subject: Medication Inquiry",
+            "Priority: ",
+            "Case Description (macro): MedicationInquiry",
+            "Leave in Review: MarketPaceStaff"
+          ]
+        },
+        "medStatusCheckNoCase": {
+          "title": "Create Patient Case",
+          "endQ": "Was patient case completed in Athena?",
+          "list": [
+            "Source/Recipient:Select applicable option ",
+            "Provider: Primary Care Provider ",
+            "Person to Call: Enter Callers Name",
+            "Desired Callback Number: Enter Callback #",
+            "Subject: Medication Inquiry",
+            "Priority: ",
+            "Case Description (macro): MedicationInquiry",
+            "Leave in Review: Closed (completed)"
+          ]
+        },
+        "medStatusCheckNo": {
+          "script": "My apologies but I don’t see the status of your medication, what I can do is send your clinical team a message so they can follow up with you. ",
+          "title": "Create Patient Case",
+          "list": [
+            "Source/Recipient:Select applicable option ",
+            "Provider: Primary Care Provider ",
+            "Person to Call: Enter Callers Name",
+            "Desired Callback Number: Enter Callback #",
+            "Subject: Medication Inquiry",
+            "Priority: ",
+            "Case Description (macro): MedicationInquiry",
+            "Leave in Review: MarketPaceStaff"
+          ]
+        },
+        "yesMedHistory": {
+          "title": "Create Patient Case (Subject: TBD, Macro: TBD)",
+          "list": [
+            "Provide details for reason of the call",
+            "Document that status was provided to participant",
+            "Send patient case to Market Pace staff clinical inbox."
+          ]
+        },
+        "noMedHistory": {
+          "script": "My apologies but I don’t see that medication in your chart, what I can do is send your clinical team a message so they can follow up with you. ",
+          "title": "Create Patient Case",
+          "list": [
+            "Source/Recipient:Select applicable option ",
+            "Provider: Primary Care Provider ",
+            "Person to Call: Enter Callers Name",
+            "Desired Callback Number: Enter Callback #",
+            "Subject: Medication Inquiry",
+            "Priority: ",
+            "Case Description (macro): MedicationInquiry",
+            "Leave in Review: MarketPaceStaff"
+          ]
+        }
+      },
+      "noMedName": {
+        "title": "Create Patient Case ",
+        "script": "I am going to send a message regarding the status of your medication to our Clinical Team. Someone will get back to you by end of day today. (If Friday, inform caller that someone will return call on Monday)",
+        "list": [
+          "Source/Recipient:Select applicable option ",
+          "Provider: Primary Care Provider ",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Medication Inquiry",
+          "Priority: ",
+          "Case Description (macro): MedicationInquiry",
+          "Leave in Review: MarketPaceStaff"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,931 @@
+{
+  "provider": {
+    "authChoice": {
+      "title": "Is this a hospital or a specialist? "
+    },
+    "specialist": {
+      "question": "Ask caller if specialist knows if services require prior authorization",
+      "endQuestion": "Does the request require prior authorization?",
+      "script": "Have you verified if this services requires prior authorization?",
+      "specialAuth": {
+        "script": "Have you submitted the authorization request form via fax or the online portal?",
+        "questionAlt": "Did the Hospital/Provider submit an authorization request?"
+      },
+      "specialAuthPreNo": {
+        "question": " Did the Hospital/Provider submit an authorization request?",
+        "script": "Please submit an authorization request form via fax or the online portal. Do you need the Fax Number?",
+        "phoneN": "Fax Number: 209-729-5854",
+        "questionThird": "Create patient case:",
+        "list": [
+          "Source/Recipient: Specialist",
+          "Provider: Primary Care Provider ",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Specialist: Authorization",
+          "Priority: Yes",
+          "Case Description (macro): AuthNotSubmitted ",
+          "Leave in Review to: Close (completed)"
+        ],
+        "endQ": "Was patient case completed in Athena?"
+      },
+      "saPre": {
+        "title": "Does the participant have an appointment scheduled related to this authorization request?",
+        "question": "Does participant have an appointment?"
+      },
+      "saPreYes": {
+        "script": "Does the participant have an appointment scheduled related to this authorization request within the next 3 business days?",
+        "questionAlt": "Is appointment within the next 3 business days?"
+      },
+      "saPreYesUpdate": {
+        "title": "Is an appointment in Athena?"
+      },
+      "saPreAptYes": {
+        "title": "May I confirm the appointment details (day, date, time, location (address), special instructions)?",
+        "endQuestion": "Confirm appointment details (day, date, time, location (address), special instructions). Is appointment confirmed with participant in Athena?"
+      },
+      "saPreAptConfirmYes": {
+        "title": "Create patient case:",
+        "script": " I have confirmed that this appointment is scheduled and has been confirmed with the participant.",
+        "questionAlt": "Confirm if there are any outstanding unconfirmed external appointment patient cases, document and close (if applicable)",
+        "list": [
+          "Source/Recipient: Specialist",
+
+          "Provider: Primary Care Provider ",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Specialist: Authorization",
+          "Priority: ",
+          "Case Description (macro): AuthNotSubmitted ",
+          "Leave In Review: Close (completed)"
+        ],
+        "endQ": "Was patient case completed in Athena?"
+      },
+      "saPreAptConfirmNo": {
+        "title": "Does unconfirmed external appointment patient case exist for this appointment?"
+      },
+      "saAptConf": {
+        "title": "Mark patient case as priority urgent and document call with specialist in action notes"
+      },
+      "saAptUnconf": {
+        "title": "Create patient case for unconfirmed external appointment",
+        "list": [
+          "Source/Recipient: Specialist",
+          "Provider: Primary Care Provider ",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Unconfirmed External Appointment (Date of Appointment)",
+          "Priority: Yes",
+          "Case Description (macro): UnconfirmedExtApptPtCase",
+          "Leave In Review: cosaschedule"
+        ],
+        "endQ": "Was patient case completed in Athena?"
+      },
+
+      "saPreAptNo": {
+        "script": "This appointment is not in our records. We still need to confirm if we are able to transport participant or if participant is able to attend, we may need to contact your office to reschedule the appointment. ",
+        "questionAlt": "Add the place holder appt in Athena. Schedule with the order ID “00000”. ",
+        "extraQ": "Create the patient case for auth (Send to utilizationmgmt). ",
+        "questionThird": "Create Unconfirmed External Appt patient case (Send to cosaschedule)",
+        "questionFourth": "Confirm appt details and be sure to include in the patient case",
+
+        "title": "Add place holder (Schedule appointment) in Athena using “00000” in order number. ",
+        "endQ": "Were both patient cases created in Athena?"
+      },
+
+      "preAptNoNoAvail": {
+        "script": "This appointment is not in our records. We still need to confirm if we are able to transport participant or if participant is able to attend. We may need to contact your office to reschedule appointment if necessary.",
+        "endQ": "Does provider office want to reschedule appointment now?"
+      },
+      "preAptNoAvail": {
+        "script": "I can confirm that the appointment has been scheduled for the participant on (Date, Time).",
+        "title": "Create unconfirmed external contact attempt patient case:",
+        "list": [
+          "Source/Recipient: Specialist",
+
+          "Provider: Primary Care Provider ",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: - Unconfirmed External Appointment (Date of Appointment)",
+          "Priority: Yes",
+          "Case Description (macro): UnconfirmedExtApptPtCase",
+          "Leave in Review: cosaschedule"
+        ],
+        "endQ": "Was patient case completed in Athena?"
+      },
+      "preReschNoAvail": {
+        "script": "We are unable to reschedule this appointment at this moment. We will need to confirm if we are able to transport participant or if participant is able to attend, we may need to contact your office to reschedule appointment the appointment",
+        "questionAlt": "Create patient case for cosaschedule",
+        "list": [
+          "Source/Recipient: Specialist",
+          "Provider: Primary Care Provider",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Missing External Appointment- (Appt Date)",
+          "Priority: Yes",
+          "Case Description (macro): MissingExtAppt",
+          "Leave In Review: cosaschedule"
+        ],
+        "endQ": "Was patient case completed in Athena?"
+      },
+      "preAptNoAvailConf": {
+        "script": "I can confirm that the appointment has been scheduled for the participant on (Date, Time) is there anything else I can help you with? "
+      },
+
+      "preAptNoNoAvailYes": {
+        "title": "Was appointment able to be rescheduled? "
+      },
+
+      "preAptNoNoAvailNo": {
+        "questionAlt": "Add the place holder appt in Athena. Schedule with the order ID “00000”. ",
+        "extraQ": "Create the patient case for auth (Send to utilizationmgmt). ",
+        "questionThird": "Create Unconfirmed External Appt patient case (Send to cosaschedule)",
+        "questionFourth": "Confirm appt details and be sure to include in the patient case",
+        "title": "Create a patient case to request addition of appointment.",
+        "endQ": "Were both patient case completed in Athena?"
+      },
+      "saPreNo": {
+        "script": "Is there anything else I can help you with?",
+        "scriptFin": "Thank you for calling WelbeHealth. It has been a pleasure assisting you. Please call us back if you need any further assistance."
+      },
+      "saPreNoCase": {
+        "title": "Create patient case:",
+        "list": [
+          "Source/Recipient: Specialist",
+          "Provider: Primary Care Provider ",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Specialist: Authorization",
+          "Priority: ",
+          "Case Description (macro): Authorization: (specialty)",
+          "Leave In Review: Close (completed)"
+        ],
+        "endQ": "Was patient case completed in Athena?"
+      },
+      "specialAuthYes": {
+        "title": "Check QuickCap for an authorization. Is there an authorization in QuickCap?"
+      },
+
+      "specialAuthOptions": {
+        "title": "Select authorization Status in QuickCap: Option buttons"
+      },
+
+      "saoApproved": {
+        "title": "Provide the caller with the authorization number (if needed).",
+        "script": "I can confirm that we have received your authorization request and it is approved.",
+        "question": "Provide the caller with the authorization number (if needed).",
+        "endQ": "Does caller need the approved authorization faxed? "
+      },
+      "saoApprovedYes": {
+        "question": "Create patient case ",
+        "script": "Can I confirm the fax that I have listed so that I may fax over the approved authorization?",
+        "questionAlt": "Confirm fax # listed in QuickCap with caller & update if needed. Refax authorization in QuickCap.",
+        "scriptAlt": "I have successfully refaxed the authorization. Is there anything else I can help you with?",
+        "list": [
+          "Source/Recipient: Specialist",
+          "Provider: Primary Care Provider ",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Specialist: Authorization",
+          "Priority:",
+          "Case Description (macro): Authorization: (specialty)",
+          "Leave in Review to: Close (completed)"
+        ],
+
+        "endQ": "Was patient case completed in Athena?"
+      },
+      "saoApprovedNo": {
+        "question": "Create patient case ",
+        "list": [
+          "Source/Recipient: Specialist",
+          "Provider: Primary Care Provider ",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Specialist: Authorization",
+          "Priority:",
+          "Case Description (macro): Authorization: (specialty)",
+          "Leave in Review to: Close (completed)"
+        ],
+        "endQ": "Was patient case completed in Athena?"
+      },
+      "saoPended": {
+        "script": "I can confirm we received your request on (Date).",
+        "title": "Check QuickCap for date of submission to determine if still within turnaround time.",
+        "qNoAction": "Routine: 14 days ",
+        "qNoActionAlt": "STAT/Urgent: 72 hours",
+        "endQ": "Is authorization within turnaround time?"
+      },
+      "saoPendedCase": {
+        "script": "I can confirm that we have received your authorization request and has not yet been approved. WelbeHealth has a 14-day calendar day turnaround time on routine authorization requests beginning on date of receipt. Urgent requests will be processed within 72 Hours & upon receipt of a complete form and based on medical necessity as outlined in supporting documentation",
+        "question": "Create patient case ",
+        "list": [
+          "Source/Recipient: Specialist",
+          "Provider: Primary Care Provider",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Specialist: Authorization",
+          "Priority:",
+          "Case Description: Authorization: (specialty)",
+          "Leave in Review to: close"
+        ],
+        "endQ": "Was patient case completed in Athena?"
+      },
+
+      "saoPendedYes": {
+        "script": "Does the participant have an appointment scheduled related to this authorization request?",
+        "question": "Does participant have an appointment?"
+      },
+
+      "saoPendedYesConfirm": {
+        "title": "Create patient case",
+        "list": [
+          "Source/Recipient: Specialist",
+
+          "Provider: Primary Care Provider ",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Authorization Status Pending (Enter Appt Date)",
+          "Priority: Yes",
+          "Case Description (macro): AuthStatusPend",
+          "Leave in Review to: utilizationmgmt"
+        ],
+        "endQ": "Was patient case completed in Athena? "
+      },
+      "saoPendedNoConfirm": {
+        "title": "Please document patient case in Athena"
+      },
+      "saoPendedNo": {
+        "title": "I can confirm that we have received your authorization request and has not yet been approved. I will send a message to our Utilization Management team to request status on your behalf.  They will be calling you to provide status.",
+        "question": "Create Patient Case:",
+        "list": [
+          "Source/Recipient: Specialist",
+          "Provider: Primary Care Provider",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Specialist: Authorization",
+          "Priority:  Flag priority if authorization is urgent in QuickCap",
+          "Case Description: Authorization: (specialty)",
+          "Leave in Review to: utilizationmgmt"
+        ],
+        "endQ": "Was patient case completed in Athena? "
+      },
+      "saoDenied": {
+        "title": "I can confirm that we have received your authorization request and it appears that it has been denied (Do NOT provide denial reason). ",
+        "question": "Is the caller requesting more information on denial reason?"
+      },
+
+      "saoDeniedYes": {
+        "title": "I will send a message to our utilization management team and someone will call you back within 3 business days.",
+        "list": [
+          "Source/Recipient: Specialist",
+
+          "Provider: Primary Care Provider ",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Authorization Denial Call Back",
+          "Priority: Yes",
+          "Case Description (macro): AuthDenialescalate",
+          "Leave in Review to: utilizationmanagement"
+        ],
+        "endQ": "Was patient case completed in Athena?"
+      },
+      "saoDeniedYesConfirm": {
+        "title": "I have went ahead and sent the message to our Utilization Management team. Is there anything else I can help you with?"
+      },
+      "saoDeniedNoConfirm": {
+        "title": "Create Patient Case",
+        "list": [
+          "Source/Recipient: Specialist",
+
+          "Provider: Primary Care Provider ",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Specialist: Authorization",
+          "Priority:",
+          "Case Description (macro): AuthDenial",
+          "Case Description: Authorization: (specialty)"
+        ],
+        "endQ": "Was patient case completed in Athena?"
+      },
+      "saoDeniedNo": {
+        "title": "Create Patient Case",
+        "list": [
+          "Source/Recipient: Specialist",
+          "Provider: Primary Care Provider ",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Specialist: Authorization",
+          "Priority:",
+          "Case Description: Authorization: (specialty)",
+          "Leave in Review to: Close (completed)"
+        ],
+        "endQ": "Was patient case completed in Athena?"
+      },
+      "deniedSaPre": {
+        "title": "Does the participant have an appointment scheduled related to this authorization request?",
+        "question": "Does participant have an appointment?"
+      },
+      "saoDeniedYesUpdated": {
+        "script": "Due to the fact that the authorization for this service was denied, would you like to cancel the appointment?",
+        "endQ": "Does external provider want to cancel appointment?"
+      },
+      "saoDeniedYesNew": {
+        "question": "Is appointment in Athena?"
+      },
+      "saoDeniedYNewYes": {
+        "script": "I have successfully cancelled the appointment.  If you need to reschedule this appointment at a later date, please feel free to contact us Monday-Friday from 8AM-5PM Pacific.",
+        "questionAlt": "Cancel appointment in Athena (reference authorization patient case number)",
+        "extraQ": "Create patient case for cancellation notification to participant",
+        "questionThird": "Check to see if order is available in Athena (if so, document authorization patient case number)- route order to ordering provider",
+        "questionFourth": "If appointment cancellation is within 48 hours, notify transportation of cancellation",
+        "endQ": "Was patient case created?"
+      },
+      "saoDeniedYNewNo": {
+        "script": "If you need to reschedule this appointment at a later date, please feel free to contact us Monday-Friday from 8AM-5PM Pacific."
+      },
+      "saoNoAuth": {
+        "title": "I can confirm that we have received your authorization request and it appears that there is no authorization required. Is there anything else I can help you with?"
+      },
+      "saoNoAuthYesConfirm": {
+        "script": " I can confirm we received your authorization request and it appears that no authorization is needed.",
+        "title": "Create patient case",
+        "list": [
+          "Source/Recipient: Specialist",
+          "Provider: Primary Care Provider ",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Authorization",
+          "Priority:",
+          "Case Description (macro):  Authorization: (specialty)",
+          "Leave In Review: Closed"
+        ],
+        "endQ": "Was patient case completed in Athena?"
+      },
+      "saoNoAuthNoConfirm": {
+        "title": "Please Submit Patient Case in Athena",
+        "list": [
+          "Source/Recipient: Specialist",
+
+          "Provider: Primary Care Provider ",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Authorization Status",
+          "Priority:",
+          "Case Description (macro): Authstatus",
+          "Leave In Review: Closed"
+        ],
+        "endQ": "Was patient case completed in Athena?"
+      },
+      "saoCanceled": {
+        "title": "I can confirm that we have received your authorization request and it appears that it has been canceled (do not provide cancel reason).",
+        "endQ": "Is the caller requesting more information or cancellation reason? "
+      },
+      "saoCanceledYes": {
+        "title": "Advise the caller to refer to the online portal for cancellation reason.",
+        "endQ": "Is the caller requesting to speak to someone? "
+      },
+      "saoCanceledYesConfirm": {
+        "title": "I will send a message to our Utilization Management team to have someone return your call. Someone should return your call within 3 Business days. ",
+        "list": [
+          "Source/Recipient: Specialist",
+          "Provider: Primary Care Provider ",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Specialist: Authorization",
+          "Priority: Yes",
+          "Case Description: Authorization: (specialty)",
+          "Leave in Review to: utilizationmanagement"
+        ],
+        "endQ": "Was patient case completed in Athena?"
+      },
+      "saoCanceledYesFinal": {
+        "title": "I have went ahead and sent the message to our Utilization Management team. Is there anything else I can help you with?"
+      },
+      "saoCanceledNo": {
+        "title": "Create Patient Case",
+        "list": [
+          "Source/Recipient: Specialist",
+          "Provider: Primary Care Provider ",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Specialist: Authorization",
+          "Priority:",
+          "Case Description: Authorization: (specialty)",
+          "Leave in Review to: Close (completed)"
+        ],
+        "endQ": "Was patient case completed in Athena?"
+      },
+      "cancelledSaPre": {
+        "title": "Does the participant have an appointment scheduled related to this authorization request?",
+        "question": "Does participant have an appointment?"
+      },
+      "cancelledSaPreYes": {
+        "script": "Due to the fact that the authorization for this service was cancelled, would you like to cancel the appointment?",
+        "endQ": "Does external provider want to cancel appointment?"
+      },
+      "saveforthemoment": {
+        "script": "Due to the fact that the authorization for this service was denied, would you like to cancel the appointment?",
+        "endQ": "Does external provider want to cancel appointment?"
+      },
+      "saoModified": {
+        "title": "I can confirm that we have received your authorization request and it appears that it has been modified from the original request. I will fax over the modified authorization. If you have any questions, please call us back.",
+        "questionAlt": "Ask Caller to confirm fax number in which authorization should be faxed to. Update fax number in QuickCap if required. Refax authorization in QuickCap",
+        "extraQ": "Create Patient Case",
+        "list": [
+          "Source/Recipient: Specialist",
+          "Provider: Primary Care Provider ",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Specialist: Authorization",
+          "Priority: ",
+          "Case Description: Authorization: (specialty)",
+          "Leave In Review: Close"
+        ],
+        "endQ": "Was patient case completed in Athena?"
+      },
+      "saoModifiedYesConfirmed": {
+        "title": "Is an appointment in Athena?"
+      },
+      "sModYesConfYes": {
+        "title": "Confirm appointment details (Day, date, time, address, special instructions), verify if appointment is confirmed in Athena"
+      },
+      "sModYesConfYesCase": {
+        "title": "Create patient case:",
+        "list": [
+          "Source/Recipient: Specialist",
+
+          "Provider: Primary Care Provider ",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: -",
+          "Priority: Yes",
+          "Case Description (macro): -",
+          "Leave In Review: close"
+        ],
+        "endQ": "Was patient case completed in Athena?"
+      },
+      "sModYesConfNo": {
+        "title": "Does unconfirmed external appointment patient case exist for this appointment?"
+      },
+      "sModYesConfNoMark": {
+        "title": "mark patient case as priority urgent and document call with specialist in action notes"
+      },
+      "sModYesConfNoCase": {
+        "title": "Create patient case:",
+        "list": [
+          "Source/Recipient: Specialist",
+
+          "Provider: Primary Care Provider ",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: -",
+          "Priority: Yes",
+          "Case Description (macro): -",
+          "Leave In Review: close"
+        ],
+        "endQ": "Was patient case completed in Athena?"
+      },
+
+      "specialAuthNo": {
+        "title": "The Requested Services do not require Prior authorization",
+        "script": "Does the participant have an appointment scheduled related to this authorization request within the next 3 business days"
+      },
+      "specialAuthPreNoUpdated": {
+        "script": "Does the participant have an appointment scheduled related to this authorization request?"
+      },
+      "specialAuthPreNoCaseFin": {
+        "title": "Thank you for calling WelbeHealth. It has been a pleasure assisting you. Please call us back if you need any further assistance."
+      },
+      "specialAuthPreNoCase": {
+        "title": "Create patient case",
+        "list": [
+          "Source/Recipient: Specialist",
+          "Provider: Primary Care Provider",
+          "Person to Call: Enter callers name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Specialist Authorization",
+          "Priority:",
+          "Case Description (macro): SpecialistAuthorization",
+          "Leave In Review: close"
+        ],
+        "endQ": "Was patient case completed in Athena?"
+      },
+      "specialAuthNoConfirm": {
+        "script": "This appointment is not in our records. We still need to confirm if we are able to transport participant or if participant is able to attend, we may need to contact your office to the reschedule appointment",
+        "question": "Add the place holder appt in Athena. Schedule with the order ID “55555” and create Unconfirmed External Appt patient case (Send to cosachedule)",
+        "title": "Create Patient Case",
+        "list": [
+          "Source/Recipient: Specialist",
+          "Provider: Primary Care Provider ",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Unconfirmed - External Appt - [Appointment Date]",
+          "Priority:",
+          "Case Description (macro): UnconfirmedExtApptPtCase",
+          "Leave In Review: cosaschedule"
+        ],
+        "endQ": "Was patient case completed in Athena?"
+      },
+      "specialAuthYesNotSure": {
+        "title": "Have you faxed over or submitted via the portal an authorization request form? Did the Specialist fax over an authorization request? "
+      },
+      "saoNotSureNo": {
+        "title": "Please submit an authorization request form via fax or via the online portal. Do you need the Fax Number?",
+        "question": "Fax Number: 209-729-5854",
+        "endQ": "Was patient case completed in Athena? ",
+        "list": [
+          "Source/Recipient: Specialist",
+
+          "Provider: Primary Care Provider ",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Authorization Status",
+          "Priority:",
+          "Case Description (macro): NoAuth",
+          "Leave in Review to: Close (completed)"
+        ]
+      }
+    },
+
+    "hospital": {
+      "title": "Hospital authorization",
+      "script": "Have you submitted the authorization request form via fax or the online portal?",
+      "endQ": "Did the hospital/provider fax over an authorization request? ",
+      "isAuthRequest": {
+        "title": "Check QuickCap for an authorization.",
+        "screenQuestion": "Is there an authorization in QuickCap?"
+      },
+      "quickCapOptions": {
+        "title": "Select authorization Status in QuickCap:"
+      },
+      "qCApproved": {
+        "script": "I can confirm that we have received your authorization request and it is approved.",
+        "title": " Provide the caller with the authorization number (if needed). ",
+        "endQuestion": "Does caller need the approved authorization faxed?"
+      },
+      "yesQcApp": {
+        "question": "Create patient case",
+        "script": "Can I confirm the fax # that I have listed so that I may fax over the approved authorization?",
+        "questionAlt": "Confirm fax # listed in QuickCap with caller & update if needed. Refax authorization in QuickCap.",
+        "endQuestion": "I have successfully refaxed the authorization. Is there anything else I can help you with?",
+        "screenQuestion": "Was patient case completed in Athena?",
+        "list": [
+          "Source/Recipient: Hospital",
+          "Provider: Primary Care Provider ",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Hospital: Authorization",
+          "Priority: if caller states its urgent",
+          "Case Description (macro): HospitalAuthSubmitted",
+          "Leave in Review: Close (completed)"
+        ]
+      },
+      "noQcApp": {
+        "title": "Create patient case",
+        "list": [
+          "Source/Recipient: Hospital",
+          "Provider:  Primary Care Provider",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Hospital: Authorization",
+          "Priority: Urgent",
+          "Case Description (macro): HospitalAuthSubmitted",
+          "Leave in Review: Close (completed)"
+        ],
+        "endQ": "Was patient case completed in Athena?"
+      },
+      "qCappSucces": {
+        "title": "Thank you for calling WelbeHealth. It has been a pleasure assisting you. Please call us back if you need any further assistance. "
+      },
+      "qCappFail": {
+        "title": "Please submit patient case in Athena",
+        "screenQuestion": "Attempt to transfer caller to 9005 (complex Care Team) Hold for warm transfer.",
+        "endQ": "was someone available to take the call? "
+      },
+
+      "qCPended": {
+        "title": "I can confirm that we have received your authorization request and has not yet been approved. I will need to reach out to our Complex Care Team for follow-up. Let me see if someone is available to take your call. Would you mind if I place you on a brief hold while I try to connect you?",
+        "screenQuestion": "Attempt to transfer caller to ext. 9005 (Complex Care Team). Please hold for warm transfer and introduce caller to Complex Care Team",
+        "altScript": "Would you mind if I place you on a brief hold while I try to connect you?",
+        "extraQ": "Please hold for warm transfer.",
+        "endQ": "Was someone available to take the call?"
+      },
+      "qCPendedYes": {
+        "title": "Create patient case",
+        "script": "Thank you for holding. I have _________ from the Complex Care Team, who will be able to further assist you. Was there anything else that I can help you with?",
+        "question": "Please create patient case in Athena",
+        "list": [
+          "Source/Recipient: Hospital",
+
+          "Provider: Primary Care Provider ",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Hospital: Authorization",
+          "Priority: Yes",
+          "Case Description (macro): HospitalAuthorization",
+          "Leave In Review: complexcareteam"
+        ],
+        "endQ": "Was patient case completed in Athena?"
+      },
+      "qCappNoAvail": {
+        "title": "Thank you for holding. No one is available at the moment. What I can do is send our Complex Care Team a message and they will get back to you within the next 24-48 hours.",
+        "screenQuestion": "Please create patient case in Athena",
+        "list": [
+          "Source/Recipient: Hospital",
+          "Provider: Primary Care Provider ",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Hospital: Authorization",
+          "Priority: Yes",
+          "Case Description (macro): HospitalAuthorization",
+          "Leave In Review: complexcareteam"
+        ],
+        "endQ": "Was patient case completed in Athena?"
+      },
+      "qCDenied": {
+        "script": "I can confirm that we have received your authorization request and it appears that it has been denied (Do NOT provide denial reason). I will need to reach out to our complex care team to provide you with further details.",
+        "title": "Attempt to transfer caller to ext. 9005 (Complex Care Team).",
+        "endQ": "Was someone available to take the call?"
+      },
+      "yesQcDenied": {
+        "script": "Thank you for holding. I have _________ from the Complex Care Team, who will be able to further assist you. Was there anything else that I can help you with?",
+        "question": "Please create patient case in Athena",
+        "list": [
+          "Source/Recipient: Hospital",
+          "Provider: Primary Care Provider ",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Hospital: Authorization",
+          "Priority: Yes",
+          "Case Description (macro): HospitalAuthorization",
+          "Leave In Review: complexcareteam"
+        ],
+        "screenQuestion": "Was patient case completed in Athena?"
+      },
+      "yesQcDeniedFin": {
+        "script": "Thank you for calling WelbeHealth. It has been a pleasure assisting you. Please call us back if you need any further assistance."
+      },
+      "noQcDenied": {
+        "screenQuestion": "Thank you for holding. No one is available at the moment. What I can do is send our Complex Care Team a message and they will get back to you within the next 24-48 hours.",
+        "title": "Please create patient case in Athena",
+        "list": [
+          "Source/Recipient: Hospital",
+          "Provider: Primary Care Provider ",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Hospital: Authorization",
+          "Priority: Yes",
+          "Case Description (macro): HospitalAuthorization",
+          "Leave In Review: complexcareteam"
+        ],
+        "endQ": "Was patient case completed in Athena?"
+      },
+      "qCNoAuthorizationNeeded": {
+        "title": "I can confirm that we have received your authorization request and it appears that there is no authorization required. Is there anything else I can help you with? "
+      },
+      "qCNoAuthYes": {
+        "title": "Please submit patient case in Athena related to authorization status inquiry.",
+        "list": [
+          "Source/Recipient: Hospital",
+
+          "Provider: Primary Care Provider ",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Hospital: Authorization",
+          "Priority: ",
+          "Case Description (macro): HospitalAuthorization",
+          "Leave In Review: Closed"
+        ],
+        "endQ": "Was patient case completed in Athena?"
+      },
+      "qCNoAuthYesFinal": {
+        "title": "How can I be of further assistance to you today?"
+      },
+      "qCNoAuthNo": {
+        "title": "Please create patient case in Athena ",
+        "list": [
+          "Source/Recipient: Hospital",
+
+          "Provider: Primary Care Provider ",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Hospital: Authorization",
+          "Priority: ",
+          "Case Description (macro): HospitalAuthorization",
+          "Leave in Review: Close (completed)"
+        ],
+        "endQ": "Was patient case completed in Athena?"
+      },
+      "qCNoAuthNoFinal": {
+        "title": "Is there anything else I can assist you with?"
+      },
+      "qCCanceled": {
+        "title": "I can confirm that we have received your authorization request and appears to have been cancelled. I will need to reach out to our Complex Care Team for follow-up. Let me see if someone is available to take your call. Would you mind if I place you on a brief hold while I try to connect you?",
+        "question": "Attempt to transfer caller to ext. 9005 (Complex Care Team). Please hold for warm transfer and introduce caller to Complex Care Team. ",
+        "scriptAlt": "Would you mind if I place you on a brief hold while I try to connect you?",
+        "extraQ": "Please hold for warm transfer.",
+        "endQ": "Was someone available to take the call?"
+      },
+      "qCCanceledYes": {
+        "script": "Thank you for holding. I have _________ from the Complex Care Team, who will be able to further assist you. Was there anything else that I can help you with?",
+        "question": "Please create patient case in Athena ",
+        "list": [
+          "Source/Recipient: Hospital",
+
+          "Provider: Primary Care Provider ",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Hospital: Authorization",
+          "Priority: Yes",
+          "Case Description (macro): HospitalAuthorization",
+          "Leave In Review: complexcareteam"
+        ],
+        "endQ": "Was patient case completed in Athena?"
+      },
+      "qCCanceledNo": {
+        "title": "Thank you for holding. No one is available at the moment. What I can do is send our Complex Care Team a message and they will get back to you within the next 24-48 hours.",
+        "question": "Please create patient case in Athena",
+        "list": [
+          "Source/Recipient: Hospital",
+          "Provider: Primary Care Provider ",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Hospital: Authorization",
+          "Priority: Yes",
+          "Case Description (macro): HospitalAuthorization",
+          "Leave In Review: complexcareteam"
+        ],
+        "endQ": "Was patient case completed in Athena?"
+      },
+      "qCModified": {
+        "title": "I can confirm that we have received your authorization request and it appears that it has been approved with modifications from the original request.",
+        "screenQuestion": "Create patient case.",
+        "scriptAlt": "Can I confirm the fax that I have listed so that I may fax over the modified authorization?",
+        "extraQ": "Confirm fax # listed in QuickCap with caller & update if needed. Refax authorization in QuickCap and create patient case.",
+        "scriptThird": "The authorization has been refaxed. If you have any questions, please call us back and we will connect you with our Complex Care Team.",
+        "list": [
+          "Source/Recipient: Hospital",
+          "Provider: Primary Care Provider ",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Hospital: Authorization",
+          "Priority: ",
+          "Case Description (macro): HospitalAuthorization",
+          "Leave In Review: Close (completed)"
+        ],
+        "endQ": "Was patient case completed in Athena?"
+      },
+      "qCModifiedYes": {
+        "title": "I have successfully refaxed the authorization. Is there anything else I can help you with?"
+      },
+      "yesAuthRequest": {
+        "isApproved": {
+          "title": "Fax authorization to Hospital",
+          "list": [
+            "Create Patient Case:",
+            "Hospital Information",
+            "Caller Name",
+            "Room number",
+            "Case Manager name",
+            "A/D",
+            "Urgency",
+            "Call back Number.",
+            "Send patient Case to the Complex Care team inbox."
+          ]
+        },
+        "noApprovedQC": {
+          "title": "I was unable to find the authorization within our authorization system. Please submit an authorization request form via fax or the online portal. Do you need the fax number?",
+          "question": "Fax Number: 209-729-5854",
+          "secondQ": " Was patient case completed in Athena?",
+          "list": [
+            "Create Patient Case in Athena:",
+            "Source/Recipient: Hospital",
+
+            "Provider: Primary Care Provider ",
+            "Person to Call: Enter Callers Name",
+            "Desired Callback Number: Enter Callback #",
+            "Subject: Hospital: Authorization",
+            "Priority: Yes",
+            "Case Description (macro): HospitalAuthorization",
+            "Leave in Review to: complexcareteam"
+          ]
+        },
+        "noApproved": {
+          "title": "Check for authorization in QuickCap",
+          "screenQuestion": "Is authorization in QuickCap?",
+          "isQuickCap": {
+            "yesQuickCap": {
+              "title": "Authorization Approval",
+              "screenQuestion": "Is the authorization approved?",
+              "yesApproved": {
+                "title": "Fax authorization to Hospital",
+                "list": [
+                  "Create Patient Case:",
+                  "Hospital Information",
+                  "Caller Name",
+                  "Room number",
+                  "Case Manager name",
+                  "A/D",
+                  "Urgency",
+                  "Call back Number.",
+                  "Send patient Case to the Complex Care team inbox."
+                ]
+              },
+              "noApproved": {
+                "title": "Send a teams message to the Complex Care Team using the chat titled: LAC_CCT_Hub",
+                "screenQuestion": "Ask if a representative from the complex care team is available to take a call?",
+                "yesRep": {
+                  "title": "Warm transfer call to the available complex care team member. Also Create Patient Case",
+                  "list": [
+                    "Hospital Information",
+                    "Caller Name",
+                    "Room number",
+                    "Case Manager name",
+                    "A/D",
+                    "Urgency",
+                    "Call back Number",
+                    "Send patient Case to recipient of the call."
+                  ]
+                },
+                "noRep": {
+                  "title": "Create Patient Case",
+                  "list": [
+                    "Hospital Information",
+                    "Caller Name",
+                    "Room number",
+                    "Case Manager name",
+                    "A/D",
+                    "Urgency",
+                    "Call back Number",
+                    "Send patient Case to recipient of the call."
+                  ]
+                }
+              }
+            },
+            "noQuickCap": {
+              "title": "Send a teams message to the Complex Care Team using the chat titled: LAC_CCT_Hub",
+              "screenQuestion": "Ask if a representative from the complex care team is available to take a call?",
+              "yesRep": {
+                "title": "Warm transfer call to the available complex care team member. Also Create Patient Case",
+                "list": [
+                  "Hospital Information",
+                  "Caller Name",
+                  "Room number",
+                  "Case Manager name",
+                  "A/D",
+                  "Urgency",
+                  "Call back Number",
+                  "Send patient Case to recipient of the call."
+                ]
+              },
+              "noRep": {
+                "title": "Create Patient Case",
+                "list": [
+                  "Hospital Information",
+                  "Caller Name",
+                  "Room number",
+                  "Case Manager name",
+                  "A/D",
+                  "Urgency",
+                  "Call back Number",
+                  "Send patient Case to recipient of the call."
+                ]
+              }
+            }
+          }
+        }
+      },
+      "noAuthRequest": {
+        "title": "Please submit an authorization request form via fax or the online portal. Do you need the fax number?",
+        "question": "Fax Number: 209-729-5854",
+        "secondQ": " Was patient case completed in Athena?",
+        "list": [
+          "Create Patient Case in Athena:",
+          "Source/Recipient: Hospital",
+
+          "Provider: Primary Care Provider ",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Hospital: Authorization",
+          "Priority: Yes",
+          "Case Description (macro): HospitalAuthorization",
+          "Leave in Review to: complexcareteam"
+        ]
+      },
+      "yesCaseComplete": {
+        "title": "We have sent a message to our complex care team to notify them of your request. As a reminder, please be sure to submit an authorization form via fax or online portal. Is there anything else I can help you with?"
+      },
+      "noCaseComplete": {
+        "title": "Please submit patient case in Athena"
+      }
+    },
+    "anythingElse": {
+      "title": "Is there anything else I can assist you with?"
+    },
+    "finishCopy": {
+      "endQ": "Was patient case completed in Athena?",
+      "title": "Is there anything else I can help you with?",
+      "noAssist": "Thank you for calling WelbeHealth. It has been a pleasure assisting you. Please call us back if you need any further assistance."
+    },
+    "other": {}
+  }
+}

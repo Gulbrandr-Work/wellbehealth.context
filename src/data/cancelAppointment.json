@@ -1,0 +1,253 @@
+{
+  "newCancel": {
+    "screenQuestion": "Does the Participant want to Reschedule their appointment?",
+    "isSick": {
+      "screenQuestion": "Is participant Rescheduling because they are sick? "
+    },
+    "yesSick": {
+      "screenQuestion": "Are any of the reported symptoms on the trigger list?"
+    },
+    "nurseOTD": {
+      "title": "Attempt to warm transfer to Nurse of the Day",
+      "screenQuestion": "was Nurse of the Day available for transfer?"
+    },
+    "providerOTD": {
+      "title": "Attempt to warm transfer to Provider of the Day",
+      "screenQuestion": "Was Provider of the Day available for Transfer?"
+    },
+    "pcpOTD": {
+      "title": "Attempt to warm transfer to the Participants PCP",
+      "screenQuestion": "Was the PCP available?"
+    },
+    "pcpAvailable": {
+      "title": "Create Patient Case "
+    },
+    "noSick": {
+      "screenQuestion": "Are any of the reported symptoms on the trigger list?"
+    },
+    "noTriggerList": {
+      "screenQuestion": "Does the Participant Have a medical complaint that is not on the Trigger List?"
+    },
+    "yesNotListed": {
+      "screenQuestion": "is the Participant requesting a same day Appointment?"
+    },
+    "yesSameDay": {
+      "screenQuestion": "Does assigned Provider of the Day have availability Today?"
+    },
+    "noNotlisted": {
+      "title": "Review Risk Stratification in Athena.",
+      "screenQuestion": "Does the Participant Fall in the Red/Purple Risk Stratification?"
+    },
+    "yesRedPurple": {
+      "title": "Schedule Participant for a In Clinic visit with PCP within 48 hours",
+      "screenQuestion": "Was appointment Available within 48 Hours?"
+    },
+    "noRedPurple": {
+      "title": "Schedule Participant for a In Clinic visit with PCP within 1 week",
+      "screenQuestion": "Was Appointment available within 1 week?"
+    },
+    "noSameDay": {
+      "title": "Create a patient case (Subject: TBD, Macro: TBD)",
+      "list": [
+        "Description of Symptom, Duration of symptom, Start Date.",
+        "Who is the caller",
+        " CB #",
+        "Best Call Back time",
+        "Who are they requesting to see?",
+        "Note that PRT wanted Same Day appointment, but no Appointment was available.",
+        "Send Patient Case as Urgent to the PCP"
+      ]
+    },
+    "ispcpAvailable": {
+      "screenQuestion": "Does the PCP have availability today?"
+    },
+    "pcpUnavailable": {
+      "title": "If no Same Day appointment available, please schedule Appointment within 48 in person or based on current scheduling guidelines.",
+      "screenQuestion": "Was appointment Available within 48 Hours?"
+    },
+    "twoDayAvailable": {
+      "title": "Schedule appointment. Create a patient case (Subject: TBD, Macro: TBD)",
+      "list": [
+        "Description of Symptom, Duration of symptom, Start Date.",
+        "Who is the caller",
+        " CB #",
+        "Best Call Back time",
+        "Appointment Date/Time.",
+        "Send Patient Case to the PCP"
+      ]
+    },
+    "noTwoDayAvail": {
+      "title": "Schedule appointment. Create a patient case (Subject: TBD, Macro: TBD)",
+      "list": [
+        "Description of Symptom, Duration of symptom, Start Date.",
+        "Who is the caller",
+        " CB #",
+        "Best Call Back time",
+        "Who are they requesting to see?",
+        "Note that PRT wanted Same Day appointment, but no Appointment was available. ",
+        "Send Patient Case as Urgent to the PCP"
+      ]
+    },
+    "notSick": {
+      "screenQuestion": "Is the Schedule appointment for an "
+    },
+    "isInternal": {
+      "screenQuestion": "Check in Athena if Participant has an appointment scheduled?"
+    },
+    "yesScheduled": {
+      "title": "Will the reschedule be for a"
+    },
+    "providerAptQ": {
+      "title": "Attempt to reschedule appointment within 1 week",
+      "question": "Was appointment successfully scheduled?"
+    },
+    "providerApt": {
+      "title": "Create patient case",
+      "list": [
+        "Create patient case: Subject TBD, Macro: TBD",
+        "Reason for Reschedule",
+        "Provider name",
+        "Who is the caller",
+        " CB #",
+        "Best Call Back time",
+        "Appointment Date/Time.",
+        "Number of reschedules",
+        "Send patient Case to the pcp_Staff Bucket List"
+      ]
+    },
+    "clinicAptQ": {
+      "title": "Attempt to reschedule appointment within 1 week",
+      "question": "Was appointment successfully scheduled?"
+    },
+    "clinicApt": {
+      "title": "Create patient case",
+      "list": [
+        "Create patient case: Subject TBD, Macro: TBD",
+        "Reason for Reschedule",
+        "Provider name",
+        "Who is the caller",
+        " CB #",
+        "Best Call Back time",
+        "Appointment Date/Time.",
+        "Number of reschedules",
+        "Send patient Case to the pcp_Staff Bucket List"
+      ]
+    },
+    "isExternal": {
+      "screenQuestion": "Is the Order a Stat or an Urgent Order?"
+    },
+    "yesStatUrgent": {},
+    "nurseOTDUrg": {
+      "title": "Attempt to warm transfer to Nurse of the Day",
+      "screenQuestion": "was Nurse of the Day available for transfer?"
+    },
+    "providerOTDUrg": {
+      "title": "Attempt to warm transfer to Provider of the Day",
+      "screenQuestion": "Was Provider of the Day available for Transfer?"
+    },
+    "pcpOTDUrg": {
+      "title": "Attempt to warm transfer to the Participants PCP",
+      "screenQuestion": "Was the PCP available?"
+    },
+    "isOneHour": {
+      "title": "Was appointment Available within 48 Hours?",
+      "list": [
+        "Schedule appointment and create a patient case (Subject: TBD, Macro: TBD)",
+        "Cancel Appointment",
+        "Fax Cancelation notice to Provider office",
+        "Reopen the Order for reschedule",
+        "Notify the Market Transportation Team via teams.",
+        "Create Patient Case (Subject: TBD, Macro: TBD,)",
+        "Appointment Date/Time.",
+        "Specialist/Provider name",
+        "Reason for Cancelation",
+        "CB #",
+        "Send Patient Case as URGENT to PCP"
+      ]
+    },
+    "notOneHour": {
+      "title": "Notify the Market Transportation Team via teams",
+      "list": [
+        "Create Patient Case(Subject: TBD, Macro: TBD)",
+        "Appointment Date/Time.",
+        "Specialist/Provider name",
+        "Reason for Cancelation",
+        "CB #",
+        "Send Patient Case as URGENT to pcp_staff bucket list"
+      ]
+    },
+    "noStatUrgent": {
+      "screenQuestion": "Has the Participant order been previously rescheduled?"
+    },
+    "hasResked": {
+      "screenQuestion": "Is this the 1st or the 2nd time the Appointment has been rescheduled?"
+    },
+    "yesFirst": {
+      "title": ", Cancel Appointment in Athena, Document in the order and reopen order for rescheduling. If the Appointment is within 24 hours, please notify transportation via teams regarding the cancelled appointment",
+      "list": [
+        "Create Patient Case(Subject: TBD, Macro: TBD)",
+        "Reason for Reschedule",
+        "Caller",
+        "Best Call Back time",
+        "Number of reschedules",
+        "Order Number",
+        "Send Patient Case to Cosa Scheduling"
+      ]
+    },
+    "notFirst": {
+      "title": "Cancel Appointment in Athena",
+      "list": [
+        "Document In The Order",
+        "Participant calling to reschedule",
+        "Return the order back to the Provider for review and for discussion with participant.",
+        "If the Appointment is within 24 hours, please notify transportation via teams regarding the cancelled appointment."
+      ]
+    },
+    "hasntResked": {
+      "title": "Cancel Appointment in Athena, . If the Appointment is within 24 hours, please notify transportation via teams regarding the cancelled appointment",
+      "list": [
+        "Create Patient Case(Subject: TBD, Macro: TBD)",
+        "Reason for Reschedule",
+        "Caller",
+        "Best Call Back number",
+        "Best Call Back time",
+        "Number of reschedules",
+        "Order Number",
+        "Send Patient Case to Cosa Scheduling"
+      ]
+    },
+    "noResked": {
+      "screenQuestion": "Is appointment within 1 hour?"
+    },
+    "isOneHour": {
+      "title": "Create a patient case (Subject: TBD, Macro: TBD)",
+      "list": [
+        "Cancel Appointment in Athena",
+        "Fax Cancelation notice to Provider office",
+        "Notify the Market Transportation Team via teams.",
+        "Create Patient Case (Subject: TBD, Macro: TBD,)",
+        "Appointment Date/Time.",
+        "Specialist/Provider name",
+        "Reason for Cancelation",
+        "Canceled Order Number",
+        "Send Patient Case as URGENT to PCP"
+      ]
+    },
+    "notOneHour": {
+      "title": "Notify the Market Transportation Team via teams",
+      "list": [
+        "Create Patient Case(Subject: TBD, Macro: TBD)",
+        "Cancel Appointment in Athena",
+        "Fax cancelation notice to provider office",
+        "Close order",
+        "Document the reason for cancelation and include patient case number",
+        "Appointment Date/Time",
+        "Appointment Type",
+        "Provider",
+        "Reason for Cancelation",
+        "Canceled order number",
+        "Send Patient Case to pcp_Staff Bucket List"
+      ]
+    }
+  }
+}

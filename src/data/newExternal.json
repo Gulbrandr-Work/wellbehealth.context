@@ -1,0 +1,46 @@
+{
+    "newExternal":{
+        "screenQuestion": "Is an Order available?",
+        "yesOrder": {
+            "title": "Check the status of the order. Has the order been scheduled?",
+            "list": [
+                "Confirm Appointment with participant",
+                "Update contact attempt patient case",
+                "update appointment"
+            ]
+        },
+        "noOrder": {
+            "title": "Check the status of scheduling order.",
+            "screenQuestion": "Is scheduling out of compliance?",
+            "yesOutComp": {
+                "list": [
+                "Document Call",
+                "Request in the order",
+                "update order priority to status “High Priority"
+                ]
+            },
+            "noOutComp": {
+
+                "screenQuestion": "Does Participant want order escalated?",
+                "yesEscalate": {
+                    "title": "Communicate TAT and Status to participant",
+                    "list": [
+                        "Document call on order",
+                        "Return order to provider for review and escalation of urgency."
+                    ]
+                },
+                "noEscalate": {
+                    "title": "If No Order is available Create a patient Case (Subject: TBD, Macro: TBD)",
+                    "list": [
+                        "Description of Symptom, Duration of symptom, Start Date.",
+                        "Who is the caller",
+                        "CB #",
+                        "Best Call Back time?",
+                        "Advising that there is no order available",
+                        "Send patient Case to Clinical Coordinator."
+                    ]
+                }
+            }
+        }
+    }
+}

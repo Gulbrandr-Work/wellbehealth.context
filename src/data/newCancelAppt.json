@@ -1,0 +1,31 @@
+{
+  "cancel": {
+    "screenQuestion": "Does the Participant want to Reschedule their appointment?",
+    "isSick": {
+      "screenQuestion": "Is participant Rescheduling because they are sick? "
+    },
+    "yesSick": {
+      "_comment": "yes on isSick / triggerlist path",
+      "screenQuestion": "Are any of the reported symptoms on the trigger list?"
+    },
+    "nurseOTD": {
+      "_comment": "yes on yesSick / Yes on trigger list / (yes) goes to patient cases yesNurse",
+      "title": "Attempt to warm transfer to Nurse of the Day",
+      "screenQuestion": "was Nurse of the Day available for transfer?"
+    },
+    "providerOTD": {
+      "_comment": "no on nurseOTD / (yes) goes to patient cases yesPOTD",
+      "title": "Attempt to warm transfer to Provider of the Day",
+      "screenQuestion": "Was Provider of the Day available for Transfer?"
+    },
+    "pcpOTD": {
+      "_comment": "no on providerOTD / (yes) goes to patient cases yesPCPOTD",
+      "title": "Attempt to warm transfer to the Participants PCP",
+      "screenQuestion": "Was the PCP available?"
+    },
+    "pcpAvailable": {
+      "_comment": "no on pcpOTD",
+      "title": "Create Patient Case "
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "tList": [
+    "Abnormal Blood Pressure",
+    "Behavior Changes",
+    "Change in bowel movements (constipation, diarrhea, can't eat)",
+    "Dizziness",
+    "Fall and/or Injury",
+    "Fever",
+    "New cough, congestion",
+    "Patient states they do not \"feel good\"",
+    "Severe Pain",
+    "Shortness of Breath",
+    "Suicidal Thought",
+    "They feel \"terrible\"",
+    "Vomiting"
+  ],
+  "secondList": [
+    "Shortness of breath",
+    "Severe pain",
+    "Vomiting",
+    "Dizziness",
+    "Abnormal Blood Pressure",
+    "Behavioral Changes",
+    "Suicidal thoughts",
+    "Changes in urinary symptoms (Unable to Urinate, pain, blood)",
+    "Changes in Bowel Movements (Constipation, Diarrhea, Can't eat)"
+  ],
+  "medList": [
+    "Question related to Dosage",
+    "Medication/Dosage changes due to Surgery and or Procedure",
+    "Question and or issue related to antibiotics",
+    "Reporting side effects causing any of the following:"
+  ],
+  "medSubList": [
+    "Shortness of breath",
+    "Severe pain",
+    "Vomiting",
+    "Dizziness",
+    "Abnormal Blood Pressure",
+    "Behavioral Changes",
+    "Suicidal thoughts",
+    "Changes in urinary symptoms (Unable to Urinate, pain, blood)",
+    "Changes in Bowel Movements (Constipation, Diarrhea, Can't eat)"
+  ]
+}

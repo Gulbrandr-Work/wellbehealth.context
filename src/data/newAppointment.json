@@ -1,0 +1,420 @@
+{
+  "newAppointment": {
+    "screenQuestion": "Please ask caller the reason for the appointment. Is reason for appointment due to any active or current medical complaint?",
+    "script": "May I ask you the reason for which you would like to schedule an appointment today?",
+    "questionAlt": "Is reason for appointment due to any active or current medical complaint?",
+    "yesMedComplaint": {
+      "screenQuestion": "Please review the trigger list below.",
+      "question": "Is the participant reporting any condition listed below or a condition that sounds urgent that should be escalated to a nurse immediately?",
+      "yesTriggerList": {
+        "nurseOTD": {
+          "script": "Before we schedule you an appointment, we will try to connect you with ___________to speak with regarding your symptoms. Would you mind if I place you on a brief hold while I attempt to connect you?",
+          "questionAlt": "Attempt to warm transfer to the nurse of the day",
+          "screenQuestion": "Was nurse of the Day available for transfer?",
+          "providerOTD": {
+            "script": "Unfortunately I was unable to connect you with the nurse but I am going to attempt to connect you with a provider, please continue to hold a brief minute while I attempt to connect you",
+            "questionAlt": "Attempt to warm transfer to the provider of the day",
+            "screenQuestion": "Was the provider of the day available for transfer?",
+            "pcpOTD": {
+              "script": "I am still attempting to connect you with a provider, please continue to hold a brief minute.  Thank you for your patience.",
+              "questionAlt": "Attempt to warm transfer to the PCP",
+              "question": "Was the PCP available for transfer?",
+              "screenQuestion": "Was Provider of the Day available for Transfer?"
+            }
+          }
+        }
+      },
+      "noTriggerList": {
+        "screenQuestion": "Does the Participant Have a medical complaint that is not on the Trigger List?",
+        "yesNotListed": {
+          "screenQuestion": "Does participant want a same day appointment?",
+          "script": "Let me see if I can schedule an appointment for you, would you like me to see if there is an appointment available today?",
+          "yesSameDay": {
+            "questionAlt": "Attempt to schedule same day appointment with the provider of the day.",
+            "questionCase": "Check to see who the provider of the day is",
+            "extraQ": "If in-person appointment, check with transportation for accommodation otherwise schedule as telehealth",
+            "anotherQ": "Offer same day appointment",
+            "question": "Were you able to successfully schedule a same day appointment?",
+            "ispcpAvailable": {
+              "questionAlt": "Attempt to schedule same day appointment with the participants PCP",
+              "extraQ": "If in-person appointment, check with transportation for accommodation otherwise schedule as telehealth",
+              "anotherQ": "Offer same day appointment",
+              "question": "Were you able to successfully schedule a same day appointment?",
+
+              "pcpUnavailable": {
+                "script": "It appears that there are no same day appointments available but let me see when my next soonest available appointment is for.",
+
+                "questionAlt": "Attempt to schedule appointment with participant PCP within 48-hours (appt type: PCP Follow Up (30) or PCP Telehealth (30))",
+
+                "questionCase": "If in-person appointment, check with transportation for accommodation otherwise schedule as telehealth",
+                "question": "Were you able to successfully schedule an appointment within 48-hours?",
+
+                "2dayAvailable": {
+                  "title": "Schedule appointment. Create a patient case (Subject: TBD, Macro: TBD)",
+                  "list": [
+                    "Description of Symptom, Duration of symptom, Start Date.",
+                    "Who is the caller",
+                    " CB #",
+                    "Best Call Back time",
+                    "Appointment Date/Time.",
+                    "Send Patient Case to the PCP"
+                  ]
+                }
+              }
+            }
+          },
+          "noSameDay": {
+            "title": "Create a patient case (Subject: TBD, Macro: TBD)",
+            "list": [
+              "Description of Symptom, Duration of symptom, Start Date.",
+              "Who is the caller",
+              " CB #",
+              "Best Call Back time",
+              "Who are they requesting to see?",
+              "Note that PRT wanted Same Day appointment, but no Appointment was available.",
+              "Send Patient Case as Urgent to the PCP"
+            ]
+          }
+        },
+        "noNotlisted": {
+          "title": "Determine participant risk stratification level in Athena.",
+          "screenQuestion": "Is the participant a level red or purple?"
+        },
+        "yesRedPurple": {
+          "questionAlt": "Schedule participant for an in-clinic visit with PCP within 48 hours.",
+          "questionCase": "If participant prefers telehealth, schedule telehealth and note in patient case.",
+          "extraQ": "If participant is not available within the 48-hours, schedule soonest available at participant convenience and note in patient case.",
+          "question": "Were you able to successfully schedule appointment?"
+        },
+        "rpAvail48": {
+          "script": "To confirm, I have scheduled an appointment for you on (date/time) with (provider) via (in-person/telehealth). ",
+          "title": "Schedule appointment, Create a patient case",
+          "list": [
+            "Source/Recipient: Select Applicable Option",
+            "Provider: Primary Care Provider",
+            "Person to Call: Enter Callers Name",
+            "Desired Callback Number: Enter Callback #",
+            "Subject: Active Medical Complaint",
+            "Priority: Yes",
+            "Case Description: ApptMedComplaintSched",
+            "Leave in Review to:  PCP"
+          ]
+        },
+        "rpNoAvail48": {
+          "title": "I will need to send an appointment request to your PCP.  We will be contacting you regarding this request within the next 24 hours.",
+          "questionCase": "Create patient case",
+          "list": [
+            "Source/Recipient: Select Applicable Option",
+            "Provider: Primary Care Provider",
+            "Person to Call: Enter Callers Name",
+            "Desired Callback Number: Enter Callback #",
+            "Subject: Active Medical Complaint",
+            "Priority: Yes",
+            "Case Description: ApptMedComplaintNotSched",
+            "Leave in Review to:  PCP"
+          ]
+        },
+        "noRedPurple": {
+          "questionAlt": "Schedule participant for an in-clinic visit with PCP within 1-week.",
+
+          "questionCase": "If participant prefers telehealth, schedule telehealth and note in patient case.",
+
+          "questionAdds": "If participant is not available within the week, schedule soonest available at participant convenience and note in patient case.",
+          "screenQuestion": "Were you able to successfully schedule appointment?"
+        },
+        "rpWeekAvail": {
+          "title": "To confirm, I have scheduled an appointment for you on (date/time) with (provider) via (in-person/telehealth)",
+          "list": [
+            "Source/Recipient: Select Applicable Option",
+            "Provider: Primary Care Provider",
+            "Person to Call: Enter Callers Name",
+            "Desired Callback Number: Enter Callback #",
+            "Subject: Active Medical Complaint",
+            "Priority:",
+            "Case Description: ApptMedComplaintSched",
+            "Leave in Review to:  PCP"
+          ]
+        },
+        "rpWeekNoAvail": {
+          "title": " I will need to send an appointment request to your PCP.  We will be contacting you regarding this request within the next 24-72 hours.",
+          "questionCase": "Create patient case",
+          "list": [
+            "Source/Recipient: Select Applicable Option",
+            "Provider: Primary Care Provider",
+            "Person to Call: Enter Callers Name",
+            "Desired Callback Number: Enter Callback #",
+            "Subject: Active Medical Complaint",
+            "Priority:",
+            "Case Description: ApptMedComplaintNotSched",
+            "Leave in Review to:  PCP"
+          ]
+        }
+      }
+    },
+    "isRecent": {
+      "title": "Are any of your symptoms new or just started within the last two days?",
+      "question": "Is the participant reporting that the symptoms started within the last two days?"
+    },
+    "isEmergency": {
+      "title": "I just want to confirm prior to looking into scheduling your appointment, do you feel like you need to go to the emergency room?",
+      "question": "Does the participant feel they need to go to the emergency room?"
+    },
+    "call911": {
+      "script": "If you feel that you should go to emergency room, you should hang up and call 911 or go to the nearest emergency room. Do you need us to call 911 for you?",
+      "questionAlt": "Escalate call to supervisor immediately if caller does not hang up.",
+      "questionCase": "If unable to connect with supervisor immediately and caller states they feel that they need immediate assistance, facilitate a 3-way call to 911."
+    },
+    "noMedComplaint": {
+      "script": "Before I look into your scheduling request, did you want one of your providers nurses to follow up with you before to discuss, or did you just want to proceed with your appointment request?  If so, I would be sending a message to our of our nurses and they would be calling you back prior to scheduling.",
+      "endQ": "Does the Participant want to talk to someone prior to scheduling an appointment?",
+      "yesConsultation": {
+        "script": "Okay, let me get some information and I can send a message for one of the nurses to call you back.",
+        "questionCase": "Create patient case",
+        "list": [
+          "Source/Recipient: Select Applicable Option",
+          "Provider: Primary Care Provider",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Internal Appointment Request",
+          "Priority:",
+          "Case Description: IntApptRequest",
+          "Leave in Review to:(market)STAFF *RN Supervisor responisble*"
+        ]
+      },
+      "noConsultation": {
+        "title": "You are now scheduling a New Appointment",
+        "screenQuestion": "Select the appointment type the participant is requesting?"
+      },
+      "noCpcpOption": {
+        "script": "Okay, let me look to find the next available appointment for you",
+        "questionAlt": "Verify whether participant has an existing appointment or outstanding tickler related to this request.  If so, either remind participant of upcoming appointment or schedule outstanding tickler based on requested date.",
+        "questionCase": "Determine risk stratification for participant by checking the appropriate field in Athena. *Note: If left blank default to red and update patient case that field was empty*",
+        "questionAdds": "Attempt to schedule appointment based on risk stratification.",
+        "endQ": "Were you able to schedule appointment based on guidelines above?"
+      },
+      "noCpcpOptionYes": {
+        "script": "To confirm, I have scheduled an appointment for you on (date/time) with (provider) via (in-person/telehealth).",
+        "questionCase": "Schedule Appointment in Athena. Create Patient Case:",
+        "list": [
+          "Subject TBD",
+          "Macro TBD",
+          "Description of Symptom",
+          "Duration of symptom",
+          "Start Date. Who is the caller",
+          "CB #",
+          "Best Call Back time",
+          "Send Patient Case to Center Nurse"
+        ],
+        "parent": "noCpcpOption"
+      },
+      "noCpcpOptionNo": {
+        "script": "It appears that that I will need to send a message to your provider prior to scheduling your appointment. We will be calling you within the next 24-72 hours regarding this request.",
+        "questionCase": "Create Patient Case:",
+        "list": [
+          "Source/Recipient: Select Applicable Option",
+          "Provider: Primary Care Provider",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Internal Appointment Request",
+          "Priority:",
+          "Case Description: IntApptRequest",
+          "Leave in Review to:  pcp_Staff"
+        ],
+        "parent": "noCpcpOption"
+      },
+      "noCexternalOption": {
+        "script": "Let me check to see if I can schedule that appointment or get more information on that appointment for you.",
+        "questionAlt": "Ask participant and/or participant representative for pertinent information to attempt to identify if order exists for requested appointment or service.",
+        "question": "Is there an order available in Athena?"
+      },
+      "noCexternalOptionYes": {
+        "script": "I do see a referral on file related to this appointment request. Give me a moment while I look into the status of this request.",
+        "questionAlt": "Check the status of the order in Athena.",
+        "endQ": "Has the order been scheduled?",
+        "parent": "noCexternalOption"
+      },
+      "noCexternalscheduled": {
+        "title": "Confirm Appointment with participant, Update contact attempt patient case and update appointment.",
+        "parent": "noCexternalOptionYes"
+      },
+      "noCexternalNoscheduled": {
+        "script": "Check to see if the order is still within compliance related to scheduling turn-around times.",
+        "questionAlt": "Is the order within scheduling compliance turnaround times?",
+        "parent": "noCexternalOptionYes"
+      },
+      "noCextrnComplianceYes": {
+        "script": "We are actively working on scheduling this referral and should be contacting you regarding this appointment within the next (x) days.",
+        "questionAlt": "X- should be number of days left to schedule based on compliance turnaround times",
+        "endQ": "Is participant expressing concern or need to escalate?",
+        "parent": "noCexternalNoscheduled"
+      },
+      "noCextCompNoEscalate": {
+        "questionAlt": "Document request in action note of associated order.",
+        "endQ": "Was action note placed in order?"
+      },
+      "noCextCompYesEscalate": {
+        "script": "I would like to see if we can help get this appointment scheduled for you sooner.  Let me send a message on your behalf to escalate your request.  Someone will be calling you back within 72-hours to provide you an update on this request.",
+        "questionAlt": "Create patient case for cosaschedule",
+
+        "questionCase": "Update associated order and reference patient case",
+
+        "questionAdds": "Update urgency to \"high priority\" on order or flag order as \"priority\"",
+        "list": [
+          "Source/Recipient: Select Applicable Option",
+          "Provider: Primary Care Provider",
+          "Person to Call: Enter Callers Name (if not participant)",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: External Appointment Status",
+          "Priority:",
+          "Case Description: ExtApptRequest",
+          "Leave in Review to:  cosaschedule"
+        ],
+        "endQ": "Was patient case completed in Athena?"
+      },
+      "noCextrnComplianceNo": {
+        "script": "We are actively working on scheduling this referral and should be contacting you regarding this appointment.  I will send a message on your behalf so that we can contact you within the next 72-hours with an update.",
+        "questionAlt": "  Create patient case for cosaschedule",
+        "questionCase": "Update associated order and reference patient case",
+        "questionAdds": "Update urgency to \"high priority\" on order or flag order as \"priority\"",
+        "list": [
+          "Source/Recipient: Select Applicable Option",
+          "Provider: Primary Care Provider",
+          "Person to Call: Enter Callers Name (if not participant)",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: External Appointment Status",
+          "Priority:",
+          "Case Description: ExtApptRequest",
+          "Leave in Review to:  cosaschedule"
+        ],
+        "endQ": "Was patient case completed in Athena?",
+        "parent": "noCexternalNoscheduled"
+      },
+      "noCextrnEscalateYes": {
+        "title": " Document call on order and return order to provider for review and escalation of urgency.",
+        "parent": "noCextrnComplianceNo"
+      },
+      "noCextrnEscalateNo": {
+        "title": "Provide order details and Document call: ",
+        "parent": "noCextrnComplianceNo"
+      },
+      "noCexternalOptionNo": {
+        "script": "It appears that we don’t have an order on file for your appointment request, I will message the clinical coordinator and they will follow up with you to further assist you.",
+        "questionAlt": "Create patient case",
+
+        "list": [
+          "Source/Recipient: Select Applicable Option",
+          "Provider: Primary Care Provider",
+          "Person to Call: Enter Callers Name (if not participant)",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: External Appointment Request",
+          "Priority:",
+          "Case Description: ExtApptRequest",
+          "Leave in Review to:  Clinical Coordinator Inbox for Market"
+        ],
+        "endQ": "Advising that there is no order available. Send patient Case to Clinical Coordinator.",
+        "parent": "noCexternalOption"
+      },
+      "noCadditionalOption": {
+        "questionAlt": "Review Athena to determine that participant does not already have upcoming appointment scheduled or pending tickler for requested provider or service, if so, inform them of upcoming appointment.",
+        "altScript": "It appears that I cannot schedule an appointment for you at the moment but will send a message to our clinic team and they will be contacting you via telephone within the next 72-hours to schedule your appointment.  Let me confirm that I have all of the details related to your request correctly.",
+        "questionCase": "Create Patient Case:",
+
+        "list": [
+          "Source/Recipient: Select Applicable Option",
+          "Provider: Primary Care Provider",
+          "Person to Call: Enter Callers Name",
+          "Desired Callback Number: Enter Callback #",
+          "Subject: Internal Appointment Request",
+          "Priority:",
+          "Case Description: IntApptRequest",
+          "Leave in Review to:  For IDT providers route directly to provider (ie, OT/PT/RD)",
+          "For labs, blood pressure checks, etc. route to pcpSTAFF"
+        ],
+        "endQ": "Was patient case completed in Athena?"
+      }
+    },
+    "podAvailNA": {
+      "script": "To confirm, I have scheduled an appointment for you for today at (time) with (provider) via (in-person/telehealth).",
+      "list": [
+        "Source/Recipient: Select Applicable Option",
+        "Provider: Primary Care Provider",
+        "Person to Call: Enter Callers Name",
+        "Desired Callback Number: Enter Callback #",
+        "Subject: Active Medical Complaint",
+        "Priority:",
+        "Case Description: ApptMedComplaintSched",
+        "Leave in Review to:  Close"
+      ],
+      "question": "Was patient case completed in Athena?"
+    },
+    "pcpUnavailableCase": {
+      "questionAlt": "I will need to send an appointment request to your PCP.  We will be contacting you regarding this request within the next 24 hours.",
+      "questionCase": "Create patient case",
+      "list": [
+        "Source/Recipient: Select Applicable Option",
+        "Provider: Primary Care Provider",
+        "Person to Call: Enter Callers Name",
+        "Desired Callback Number: Enter Callback #",
+        "Subject: Active Medical Complaint",
+        "Priority: Yes",
+        "Case Description: ApptMedComplaintNotSched",
+        "Leave in Review to:  PCP"
+      ],
+      "question": "Was patient case completed in Athena?"
+    },
+    "yesNurse": {
+      "questionAlt": "Create Patient Case",
+      "list": [
+        "Source/Recipient: Select Applicable Option",
+        "Provider: Primary Care Provider",
+        "Person to Call: Enter Callers Name",
+        "Desired Callback Number: Enter Callback #",
+        "Subject: Trigger List Escalation",
+        "Priority:",
+        "Case Description: ApptReqTriggerEsc",
+        "Leave in Review to:  Nurse"
+      ],
+      "question": "Was patient case completed in Athena?"
+    },
+    "yesPOTD": {
+      "questionAlt": "Create Patient Case",
+      "list": [
+        "Source/Recipient: Select Applicable Option",
+        "Provider: Primary Care Provider",
+        "Person to Call: Enter Callers Name",
+        "Desired Callback Number: Enter Callback #",
+        "Subject: Trigger List Escalation",
+        "Priority:",
+        "Case Description: ApptReqTriggerEsc",
+        "Leave in Review to:  Provider"
+      ]
+    },
+    "yesPCPOTD": {
+      "questionAlt": "Create Patient Case",
+      "list": [
+        "Source/Recipient: Select Applicable Option",
+        "Provider: Primary Care Provider",
+        "Person to Call: Enter Callers Name",
+        "Desired Callback Number: Enter Callback #",
+        "Subject: Trigger List Escalation",
+        "Priority:",
+        "Case Description: ApptReqTriggerEsc",
+        "Leave in Review to:  marketPACESTAFF "
+      ]
+    },
+    "noOTD": {
+      "script": "I was unable to connect you with someone to speak with at this moment. We are going to send an urgent message to your primary care provider. Please expect a return call within the next few hours. If you do not receive a call by the end of the day today, feel free to call us back. If any point in time you feel this is an emergency, please do not hesitate to call 911 or go to the nearest emergency room.",
+      "questionAlt": "Create Patient Case",
+      "list": [
+        "Source/Recipient: Select Applicable Option",
+        "Provider: Primary Care Provider",
+        "Person to Call: Enter Callers Name",
+        "Desired Callback Number: Enter Callback #",
+        "Subject: Trigger List Escalation",
+        "Priority: Yes",
+        "Case Description: ApptReqTriggerEsc",
+        "Leave in Review to:  marketPACESTAFF"
+      ]
+    }
+  }
+}

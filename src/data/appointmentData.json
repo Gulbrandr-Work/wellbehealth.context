@@ -1,0 +1,319 @@
+{
+  "appointmentData":{
+      "new":{
+          "screenQuestion": "Please ask caller the reason for the appointment. Is reason for appointment due to any active or current medical complaint?",
+          "yesMedComplaint": {
+              "screenQuestion": "Are any of the reported symptoms on the trigger list?",
+              "yesTriggerList": {
+                "nurseOTD": {
+                    "title": "Attempt to warm transfer to Nurse of the Day",
+                    "marketList": [
+                        { "name": "nurse 1", "number": "(123)456-7890" },
+                        { "name": "nurse 2", "number": "(123)456-7890" },
+                        { "name": "nurse 3", "number": "(123)456-7890" }
+                    ],
+                    "screenQuestion": "was Nurse of the Day available for transfer?",
+                    "responseTitle": "Create Patient Case(Subject: TBD, Macro: TBD)",
+                    "responseList": [
+                        "Description of Symptom, Duration of symptom, Start Date",
+                        "Who is the caller",
+                        "CB #",
+                        "Best Call Back time",
+                        "Who are they requesting to see",
+                        "Send Patient Case as URGENT to the Nurse of the Day."
+                    ]
+                  },
+                  "providerOTD": {
+                    "title": "Attempt to warm transfer to Provider of the Day",
+                    "marketList": [
+                        { "name": "Provider 1", "number": "(123)456-7890" },
+                        { "name": "Provider 2", "number": "(123)456-7890" },
+                        { "name": "Provider 3", "number": "(123)456-7890" }
+                    ],
+                    "screenQuestion": "Was Provider of the Day available for Transfer?",
+                    "responseTitle": "Create Patient Case(Subject: TBD, Macro: TBD)",
+                    "responseList": [
+                        "Description of Symptom, Duration of symptom, Start Date",
+                        "Who is the caller",
+                        "CB #",
+                        "Best Call Back time",
+                        "Who are they requesting to see",
+                        "Send Patient Case as URGENT to the Provider of the Day."
+                    ]
+                  },
+                  "pcpOTD": {
+                    "title": "Attempt to warm transfer to the Participants PCP",
+                    "screenQuestion": "Was the PCP available?",
+                    "responseTitle": "Create Patient Case(Subject: TBD, Macro: TBD)",
+                    "responseList": [
+                      "Description of Symptom, Duration of symptom, Start Date",
+                      "Who is the caller",
+                      "CB #",
+                      "Best Call Back time",
+                      "Who are they requesting to see",
+                      "Send Patient Case as URGENT to the PCP."
+                    ]
+                  },
+                  "noOTD": {
+                    "responseTitle": "Create Patient Case(Subject: TBD, Macro: TBD)",
+                    "responseList": [
+                      "Description of Symptom, Duration of symptom, Start Date",
+                      "Who is the caller",
+                      "CB #",
+                      "Best Call Back time",
+                      "Who are they requesting to see",
+                      "Send Patient Case as URGENT to the PCP"
+                    ]
+                  }
+            },
+              "noTriggerList": {
+                  "yesNotListed": {
+                      "screenQuestion": "is the Participant requesting a same day Appointment?",
+                      "podAvailable": {
+                          "title": "Does assigned Provider of the Day have availability Today?",
+                          "responseTitle": "Schedule Appointment with Provider of the Day. Create a patient case (Subject: TBD, Macro: TBD)",
+                          "responseList": [
+                              "Description of Symptom, Duration of symptom, Start Date.",
+                              "Who is the caller",
+                              " CB #",
+                              "Best Call Back time",
+                              "Appointment Date/Time.",
+                              "Close the Patient Case"]
+                      },
+                      "pcpAvailable": {
+                          "title": " Does the PCP have availability today?",
+                          "responseTitle": "Schedule appointment with PCP. Create a patient case (Subject: TBD, Macro: TBD)",
+                          "responseList": [
+                              "Description of Symptom, Duration of symptom, Start Date.",
+                              "Who is the caller",
+                              " CB #",
+                              "Best Call Back time",
+                              "Appointment Date/Time.",
+                              "Close the Patient Case"]
+                      },
+                      "pcpUnavailable": {
+                          "responseTitle": "If no Same Day appointment available, please schedule Appointment within 48 in person or based on current scheduling guidelines."
+                      },
+                      "2dayAvailable": {
+                          "title": "Was appointment Available within 48 Hours?",
+                          "responseTitle": "Schedule appointment. Create a patient case (Subject: TBD, Macro: TBD)",
+                          "responseList": [
+                              "Description of Symptom, Duration of symptom, Start Date.",
+                              "Who is the caller",
+                              " CB #",
+                              "Best Call Back time",
+                              "Appointment Date/Time.",
+                              "Send Patient Case to the PCP"]
+                      },
+                       "2dayUnavailable": {
+                          "responseTitle": "Create a patient case (Subject: TBD, Macro: TBD)",
+                          "responseList": [
+                              "Description of Symptom, Duration of symptom, Start Date.",
+                              "Who is the caller",
+                              " CB #",
+                              "Best Call Back time",
+                              "Who are they requesting to see?",
+                              "Note that PRT wanted Same Day appointment, but no Appointment was available.",
+                              "Send Patient Case as Urgent to the PCP"]
+                      }
+                  },
+                  "noNotlisted": {
+                      "screenQuestion": "Review Risk Stratification in Athena. Does the Participant Fall in the Red/Purple Risk Stratification?",
+                      "2dayAvailable": {
+                          "title": "Was appointment Available within 48 Hours?",
+                          "responseTitle": "Create a patient case (Subject: TBD, Macro: TBD)",
+                          "responseList": [
+                              "Description of Symptom, Duration of symptom, Start Date.",
+                              "Who is the caller",
+                              " CB #",
+                              "Best Call Back time",
+                              "Appointment Date/Time.",
+                              "Send Patient Case to the PCP"]
+                      },
+                       "2dayUnavailable": {
+                          "responseTitle": "Create a patient case (Subject: TBD, Macro: TBD)",
+                          "responseList": [
+                              "Description of Symptom, Duration of symptom, Start Date.",
+                              "Who is the caller",
+                              " CB #",
+                              "Best Call Back time",
+                              "Who are they requesting to see?",
+                              "Note that PRT wanted Same Day appointment, but no Appointment was available.",
+                              "Send Patient Case as Urgent to the PCP"]
+                      },
+                      "1weekAvailable": {
+                          "title": "Was appointment Available within 48 Hours?",
+                          "responseTitle": "Schedule appointment and create a patient case (Subject: TBD, Macro: TBD)",
+                          "responseList": [
+                              "Description of Symptom, Duration of symptom, Start Date.",
+                              "Who is the caller",
+                              " CB #",
+                              "Best Call Back time",
+                              "Appointment Date/Time.",
+                              "Send Patient Case to the PCP"]
+                      },
+                      "1weekUnavailable": {
+                              "responseTitle": "Create a patient case (Subject: TBD, Macro: TBD)",
+                              "responseList": [
+                                  "Description of Symptom, Duration of symptom, Start Date.",
+                                  "Who is the caller",
+                                  " CB #",
+                                  "Best Call Back time",
+                                  "Reason for Appointment and where the participant landed on the Risk Strat.",
+                                  "Send Patient Case to the PCP as an appointment request."]
+                      }
+                  }
+
+              }
+
+          },
+          "noMedComplaint":{
+              "screenQuestion": "Does the Participant want to talk to someone prior to scheduling an appointment?",
+              "yesConsultation": {
+                  "title":"Select the appointment type the participant is requesting?",
+                  "responseTitle": "Create a patient case (Subject: TBD, Macro: TBD)",
+                  "marketList": [
+                      { "name": "Center Nurse 1", "number": "(123)456-7890" },
+                      { "name": "Center Nurse 2", "number": "(123)456-7890" },
+                      { "name": "Center Nurse 3", "number": "(123)456-7890" }
+                  ],
+                  "responseList": [
+                      "Description of Symptom, Duration of symptom, Start Date.",
+                      "Who is the caller",
+                      "Call back Number",
+                      "Best Call Back time",
+                      "Who are they requesting to see?",
+                      "Send Patient Case to the Center Nurse"
+                  ]
+              },
+              "noConsultation": {
+                  "title":"You are now scheduling a New Appointment",
+                  "responseTitle": "Select the appointment type the participant is requesting?",
+                  "newPCP": {
+                      "yesRisk": {
+                          "responseTitle": "Schedule Appointment in Athena. Create Patient Case: Subject TBD, Macro TBD",
+                          "marketList": [
+                              { "name": "Center Nurse 1", "number": "(123)456-7890" },
+                              { "name": "Center Nurse 2", "number": "(123)456-7890" },
+                              { "name": "Center Nurse 3", "number": "(123)456-7890" }
+                          ],
+                          "responseList": [
+                              "Description of Symptom, Duration of symptom, Start Date.",
+                              "Who is the caller",
+                              "Call back Number",
+                              "Best Call Back time",
+                              "Send Patient Case to the Center Nurse"
+                          ]
+                      },
+                      "noRisk":{
+                          "responseTitle": "Create Patient Case: Subject TBD, Macro TBD",
+                          "responseList": [
+                              "Description of Symptom, Duration of symptom, Start Date.",
+                              "Who is the caller",
+                              "CB #",
+                              "Call back Number",
+                              "Best Call Back time",
+                              "Send Patient Case to pcp_Staff Bucket List"
+                          ]
+
+                      }
+
+                  },
+                  "newExternal":{
+                      "screenQuestion": "(Is an Order available?",
+                      "yesOrder": {
+                          "responseTitle": "Check the status of the order. Has the order been scheduled?",
+                          "responseList": [
+                              "Confirm Appointment with participant",
+                              "Update contact attempt patient case",
+                              "update appointment"
+                          ]
+                      },
+                      "noOrder": {
+                          "screenQuestion": "Check the status of scheduling order. Is scheduling out of compliance?",
+                          "marketList": [
+                              { "time": "Month 1", "turnaround": "1-3 Days", "provider": "Provider 1" },
+                              { "time": "Month 2", "number": "5-7 Days", "provider": "Provider 2"},
+                              { "time": "Month 3", "number": "10-15 Days", "provider": "Provider 3" }
+                          ],
+                          "yesOutComp": {
+                              "responseList": [
+                              "Document Call",
+                              "Request in the order",
+                              "update order priority to status “High Priority"
+                              ]
+                          },
+                          "noOutComp": {
+
+                              "screenQuestion": "Does Participant want order escalated?",
+                              "yesEscalate": {
+                                  "responseTitle": "Communicate TAT and Status to participant",
+                                  "responseList": [
+                                      "Document call on order",
+                                      "Return order to provider for review and escalation of urgency."
+                                  ]
+                              },
+                              "noEscalate": {
+                                  "title": "",
+                                  "responseTitle": "If No Order is available Create a patient Case (Subject: TBD, Macro: TBD)",
+                                  "responseList": [
+                                      "Description of Symptom, Duration of symptom, Start Date.",
+                                      "Who is the caller",
+                                      "CB #",
+                                      "Best Call Back time?",
+                                      "Advising that there is no order available",
+                                      "Send patient Case to Clinical Coordinator."
+                                  ]
+                              }
+                          }
+                      }
+                  },
+                  "newAdditional":{
+                      "responseTitle": "Create Patient Case: Subject TBD, Macro TBD",
+                      "responseList": [
+                          "Description of Symptom, Duration of symptom, Start Date.",
+                          "Who is the caller",
+                          "CB #",
+                          "Best Call Back time",
+                          "Send Patient Case to pcp_Staff Bucket List"
+                      ]
+                  },
+                  "newCancel":{
+                      "screenQuestion": "Does the Participant want to Reschedule their appointment?",
+                      "yesResked": {
+
+                      },
+                      "noResked":{
+
+                      }
+
+                  }
+              }
+
+          }
+      }
+  },
+
+
+
+
+ "createCase":{
+      "title":"Create Patient Case",
+      "caseItems":[
+          "Subject: TBD,",
+          "Macro: TBD",
+          "Description of Symptom, Duration of symptom, Start Date",
+          "Who is the caller",
+          "CB #",
+          "Best Call Back time",
+          "Who are they requesting to see"
+      ]
+  },
+  "externalLinks": {
+      "url": "https://welbepace.sharepoint.com/:x:/r/sites/COSATeamSite/_layouts/15/Doc.aspx?sourcedoc=%7B1F8A1194-2743-4BDC-8103-6AB2B2B4FD39%7D&%3Bfile=Contacts+by+Market.xlsx&%3Baction=default&%3Bmobileredirect=true&%3BisSPOFile=1&isSPOFile=1"
+    }
+
+
+
+
+}

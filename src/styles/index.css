@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes alertBkg {
+  from {
+    background-color: red;
+  }
+  to {
+    background-color: white;
+  }
+}
+.endQ {
+  transition: all 0.5s;
+  background-color: white;
+}
+.alert {
+  transition: all 0.5s;
+  background-color: red;
+  padding: 0 10px 0 0;
+}

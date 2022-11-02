@@ -1,0 +1,92 @@
+{
+  "Home": [
+    {
+      "name": "Participants",
+      "copy": "Click Start Here if the call is from a participant, caregiver, family member or DPOA.",
+      "buttons": [
+        {
+          "label": "Start Here",
+          "pathID": "Participants",
+          "cName": "blue",
+          "bType": "Path"
+        }
+      ]
+    },
+    {
+      "name": "Providers",
+      "copy": "Click Start Here if the call is from a providers office, hospital, specialist or facility.",
+      "buttons": [
+        {
+          "label": "Start Here",
+          "pathID": "Providers",
+          "cName": "blue",
+          "bType": "Path"
+        }
+      ]
+    }
+  ],
+  "Participants": [
+    {
+      "name": "New Appointment",
+      "copy": "Click here if caller is requesting to schedule a new  appointment.",
+      "buttons": [
+        {
+          "label": "Start Here",
+          "pathID": "newAppointment",
+          "cName": "blue",
+          "bType": "Question"
+        }
+      ]
+    },
+    {
+      "name": "Cancel Appointment",
+      "copy": "Click here is if caller is calling to cancel or reschedule an appointment.",
+      "buttons": [
+        {
+          "label": "Start Here",
+          "pathID": "cancelAppointment",
+          "cName": "blue",
+          "bType": "Question"
+        }
+      ]
+    },
+    {
+      "name": "Medication",
+      "copy": "Click here if caller is calling regarding status of a medication refill or has a question/issue regarding an existing medication they are taking.",
+      "buttons": [
+        {
+          "label": "Start Here",
+          "pathID": "medicationData",
+          "cName": "blue",
+          "bType": "Question"
+        }
+      ]
+    },
+    {
+      "name": "Other",
+      "copy": "For Other Participants needs Lorem ipsum dolor sit amet.",
+      "buttons": [
+        {
+          "label": "Start Here",
+          "pathID": "otherData",
+          "cName": "blue",
+          "bType": "Question"
+        }
+      ]
+    }
+  ],
+  "Providers": [
+    {
+      "name": "Authorization  ",
+      "copy": "Requesting status of an authorization.",
+      "buttons": [
+        {
+          "label": "Start Here",
+          "pathID": "authChoice",
+          "cName": "blue",
+          "bType": "Question"
+        }
+      ]
+    }
+  ]
+}

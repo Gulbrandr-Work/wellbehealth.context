@@ -1,0 +1,212 @@
+{
+  "yesNurse": {
+    "title": "Create Patient Case",
+    "script": "Thank you for holding, I have our center nurse ______on the line, who will be able to further assist you. Was there anything else that I can help you with?",
+    "list": [
+      "Source/Recipient:Select appropriate option ",
+      "Provider:Primary Care Provider ",
+      "Person to Call:Enter Callers Name ",
+      "Desired Callback Number:Enter Callback# ",
+      "Subject:Medication Inquiry: Trigger List",
+      "Priority:",
+      "Case Description (macro): MedicationTriggerEscalation",
+      "Leave in Review to: Recipient of Call"
+    ]
+  },
+  "yesPOTD": {
+    "title": "Create Patient Case",
+    "list": [
+      "Source/Recipient:Select appropriate option ",
+      "Provider:Primary Care Provider ",
+      "Person to Call:Enter Callers Name ",
+      "Desired Callback Number:Enter Callback# ",
+      "Subject:Trigger List Escalation ",
+      "Priority:",
+      "Case Description (macro):",
+      "Leave in Review to: Recipient of Call"
+    ]
+  },
+  "yesPCPOTD": {
+    "title": "Create Patient Case",
+    "list": [
+      "Source/Recipient:",
+      "Provider:Primary Care Provider ",
+      "Person to Call:Enter Callers Name ",
+      "Desired Callback Number:Enter Callback# ",
+      "Subject:Trigger List Escalation ",
+      "Priority:",
+      "Case Description (macro):",
+      "Leave in Review to: Recipient of Call"
+    ]
+  },
+  "yesPCPOTDMed": {
+    "script": "Thank you for holding, I have our provider ______on the line, who will be able to further assist you. Was there anything else that I can help you with?",
+    "title": "Create Patient Case",
+    "question": "Was patient case completed in Athena? ",
+    "list": [
+      "Source/Recipient:Select appropriate option ",
+      "Provider:Primary Care Provider ",
+      "Person to Call:Enter Callers Name ",
+      "Desired Callback Number:Enter Callback# ",
+      "Subject: Medication Inquiry: Trigger List",
+      "Priority:",
+      "Case Description (macro): MedicationTriggerEscalation",
+      "Leave in Review to: Recipient of Call"
+    ]
+  },
+  "noOTD": {
+    "script": "I was unable to connect you with someone to speak with at this moment.  We are going to send an urgent message to your primary care provider. Please expect a return call within the next few hours. If you do not receive a call by the end of the day today, feel free to call us back. If any point in time you feel this is an emergency, please do not hesitate to call 911 or go to the nearest emergency room. ",
+    "title": "Create Patient Case",
+    "list": [
+      "Source/Recipient:Select applicable option ",
+      "Provider:Primary Care Provider ",
+      "Person to Call: Enter Callers Name ",
+      "Desired Callback Number: Enter Callback# ",
+      "Subject: Medication Inquiry: Trigger List",
+      "Priority:  Yes",
+      "Case Description (macro): MedicationTriggerEscalation",
+      "Leave in Review: MarketPaceStaff"
+    ]
+  },
+  "2dayUnavailable": {
+    "title": "Create a patient case ",
+    "list": [
+      "Description of Symptom, Duration of symptom, Start Date.",
+      "Who is the caller",
+      "CB #",
+      "Best Call Back time",
+      "Who are they requesting to see?",
+      "Note that PRT wanted Same Day appointment, but no Appointment was available.",
+      "Send Patient Case as Urgent to the PCP"
+    ]
+  },
+  "podAvailable": {
+    "title": "Schedule Appointment with Provider of the Day.",
+    "script": "I have successfully scheduled your appointment for today at (time) with (doctor name). Is there anything else that I can assist you with today?",
+    "question": "Was patient case completed in Athena? ",
+    "list": [
+      "Source/Recipient: Clinical Staff",
+      "Provider :Primary Care Provider ",
+      "Person to Call: if not participant",
+      "Desired Callback Number: Enter Callback# ",
+      "Subject: Medical Complaint",
+      "Priority:",
+      "Case Description (macro):",
+      "Leave in Review to:  Close"
+    ]
+  },
+  "pcpAvailable": {
+    "title": "I have successfully scheduled your appointment for today at (time) with (doctor name). Is there anything else that I can assist you with today?",
+    "question": "Was patient case completed in Athena?",
+    "list": [
+      "Source/Recipient: Clinical Staff",
+      "Provider :Primary Care Provider ",
+      "Person to Call: if not participant",
+      "Desired Callback Number: Enter Callback#",
+      "Subject: Medical Complaint",
+      "Priority:",
+      "Case Description (macro):",
+      "Leave in Review to:  Close"
+    ]
+  },
+  "noPCPavail": {
+    "title": "Create a patient case ",
+    "list": [
+      "Description of Symptom",
+      "Duration of symptom",
+      "Start Date. Who is the caller",
+      "CB #",
+      "Best Call Back time?",
+      "Who are they requesting to see?",
+      "Send Patient Case marked as Urgent to the marketPACESTAFF "
+    ]
+  },
+
+  "2dayAvailable": {
+    "title": "Create a patient case ",
+    "list": [
+      "Source/Recipient:Select appropriate option ",
+      "Provider:Primary Care Provider ",
+      "Person to Call:Enter Callers Name ",
+      "Desired Callback Number:Enter Callback# ",
+      "Subject:Trigger List Escalation ",
+      "Priority:",
+      "Case Description (macro):",
+      "Leave in Review to: Recipient of Call"
+    ]
+  },
+  "oneWeekAvailable": {
+    "title": "Schedule appointment and create a patient case ",
+    "list": [
+      "Description of Symptom, Duration of symptom, Start Date.",
+      "Who is the caller",
+      " CB #",
+      "Best Call Back time",
+      "Appointment Date/Time.",
+      "Send Patient Case to the PCP"
+    ]
+  },
+  "oneWeekUnavailable": {
+    "title": "Create a patient case ",
+    "list": [
+      "Description of Symptom, Duration of symptom, Start Date.",
+      "Who is the caller",
+      " CB #",
+      "Best Call Back time",
+      "Reason for Appointment and where the participant landed on the Risk Strat.",
+      "Send Patient Case to the PCP as an appointment request."
+    ]
+  },
+  "noRisk": {
+    "title": "Create Patient Case: Subject TBD, Macro TBD",
+    "list": [
+      "Description of Symptom, Duration of symptom, Start Date.",
+      "Who is the caller",
+      "CB #",
+      "Call back Number",
+      "Best Call Back time",
+      "Send Patient Case to pcp_Staff Bucket List"
+    ]
+  },
+  "yesRisk": {
+    "title": "Schedule Appointment in Athena.",
+    "list": [
+      " Create Patient Case: Subject TBD, Macro TBD",
+      "Description of Symptom, Duration of symptom, Start Date.",
+      "Who is the caller",
+      "Call back Number",
+      "Best Call Back time",
+      "Send Patient Case to the Center Nurse"
+    ]
+  },
+  "yesRnSupervisor": {
+    "title": "Create Patient Case",
+    "script": "Thank you for holding, I have our RN Supervisor ______on the line, who will be able to further assist you. Was there anything else that I can help you with?",
+    "question": "Was patient case completed in Athena? ",
+    "list": [
+      "Source/Recipient:Select applicable option ",
+      "Provider:Primary Care Provider ",
+      "Person to Call: Enter Callers Name ",
+      "Desired Callback Number: Enter Callback# ",
+      "Subject: Medication Inquiry: Trigger List",
+      "Priority: ",
+      "Case Description (macro): MedicationTriggerEscalation ",
+      "Leave in Review: Receiver of call"
+    ]
+  },
+  "yesRnManager": {
+    "title": "Create Patient Case",
+    "script": "Thank you for holding, I have our RN Case Manager ______on the line, who will be able to further assist you. Was there anything else that I can help you with?",
+    "question": "Was patient case completed in Athena?",
+    "list": [
+      "Source/Recipient:Select applicable option ",
+      "Provider:Primary Care Provider ",
+      "Person to Call: Enter Callers Name ",
+      "Desired Callback Number: Enter Callback# ",
+      "Subject: Medication Inquiry: Trigger List",
+      "Priority:  ",
+      "Case Description (macro): MedicationTriggerEscalation",
+      "Leave in Review: Receiver of call"
+    ]
+  }
+}
